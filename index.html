@@ -1,17 +1,65 @@
-<form action="https://formspree.io/f/XXXXXXX" method="POST">
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Quiz Police Nexorienne 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { font-family: Arial, sans-serif; background:#f4f6f8; padding:40px; }
+    .container { max-width:800px; margin:auto; background:#fff; padding:30px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,.1); }
+    h1 { text-align:center; margin-bottom:30px; }
+    .question { margin-bottom:18px; }
+    button { background:#0a3d62; color:#fff; border:none; padding:12px 24px; font-size:16px; border-radius:6px; cursor:pointer; }
+    button:hover { background:#075985; }
+    input[type=email] { padding:10px; width:100%; max-width:400px; }
+  </style>
+</head>
+<body>
+<div class="container">
+<h1>Quiz Vrai / Faux<br>Police Nexorienne – 2026</h1>
 
-  <h3>Question 1</h3>
-  <label><input type="radio" name="q1" value="Vrai"> Vrai</label>
-  <label><input type="radio" name="q1" value="Faux"> Faux</label>
+<form id="quizForm" action="https://formspree.io/f/XXXXXXX" method="POST" onsubmit="calculerScore()">
 
-  <h3>Question 2</h3>
-  <label><input type="radio" name="q2" value="Vrai"> Vrai</label>
-  <label><input type="radio" name="q2" value="Faux"> Faux</label>
+<div id="questions"></div>
 
-  <br><br>
-  <input type="email" name="email" placeholder="Votre email" required>
+<hr>
+<label>Email du participant :<br>
+<input type="email" name="Email_participant" required></label>
 
-  <br><br>
-  <button type="submit">Envoyer le quiz</button>
+<input type="hidden" name="Score" id="score">
 
+<br><br>
+<button type="submit">Envoyer le quiz</button>
 </form>
+</div>
+
+<script>
+const bonnesReponses = {
+  Q1:'Vrai', Q2:'Vrai', Q3:'Vrai', Q4:'Vrai', Q5:'Vrai',
+  Q6:'Vrai', Q7:'Faux', Q8:'Faux', Q9:'Vrai', Q10:'Faux',
+  Q11:'Faux', Q12:'Vrai', Q13:'Vrai', Q14:'Faux', Q15:'Vrai',
+  Q16:'Vrai', Q17:'Vrai', Q18:'Faux', Q19:'Vrai', Q20:'Vrai'
+};
+
+const container = document.getElementById('questions');
+
+for (let i = 1; i <= 20; i++) {
+  container.innerHTML += `
+  <div class="question">
+    <strong>Question ${i}</strong><br>
+    <label><input type="radio" name="Q${i}" value="Vrai" required> Vrai</label><br>
+    <label><input type="radio" name="Q${i}" value="Faux"> Faux</label>
+  </div>`;
+}
+
+function calculerScore() {
+  let score = 0;
+  for (let i = 1; i <= 20; i++) {
+    const q = document.querySelector(`input[name=Q${i}]:checked`);
+    if (q && q.value === bonnesReponses[`Q${i}`]) score++;
+  }
+  document.getElementById('score').value = score + '/20';
+}
+</script>
+</body>
+</html>
