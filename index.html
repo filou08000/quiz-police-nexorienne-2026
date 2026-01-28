@@ -16,11 +16,9 @@
       background:
         linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
         url('logo_PN.webp') no-repeat center center fixed;
-
-      background-size: 45%; /* ← TAILLE DU LOGO (ajuste si besoin) */
+      background-size: 45%; /* ← TAILLE DU LOGO */
     }
 
-    /* ===== CONTENEUR DU QUIZ ===== */
     .container {
       max-width: 900px;
       margin: 40px auto;
@@ -85,7 +83,6 @@
 </div>
 
 <script>
-/* ===== CORRIGÉ OFFICIEL ===== */
 const bonnesReponses = {
   Q1:'Vrai', Q2:'Vrai', Q3:'Vrai', Q4:'Vrai', Q5:'Vrai',
   Q6:'Vrai', Q7:'Faux', Q8:'Faux', Q9:'Vrai', Q10:'Faux',
@@ -93,7 +90,6 @@ const bonnesReponses = {
   Q16:'Vrai', Q17:'Vrai', Q18:'Faux', Q19:'Vrai', Q20:'Vrai'
 };
 
-/* ===== QUESTIONS ===== */
 const textesQuestions = {
   Q1: "La Police Nexorienne a pour mission principale de maintenir l’ordre public.",
   Q2: "La Police Nexorienne protège les personnes et les biens.",
@@ -119,7 +115,6 @@ const textesQuestions = {
 
 const container = document.getElementById("questions");
 
-/* ===== GÉNÉRATION DES QUESTIONS ===== */
 for (let i = 1; i <= 20; i++) {
   container.innerHTML += `
     <div class="question">
@@ -131,7 +126,6 @@ for (let i = 1; i <= 20; i++) {
   `;
 }
 
-/* ===== CALCUL DU SCORE ===== */
 function calculerScore() {
   let score = 0;
   for (let i = 1; i <= 20; i++) {
