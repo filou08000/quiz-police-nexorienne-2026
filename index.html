@@ -43,10 +43,34 @@ const bonnesReponses = {
 
 const container = document.getElementById('questions');
 
+const textesQuestions = {
+  Q1: "La Police Nexorienne a pour mission principale de maintenir l’ordre public.",
+  Q2: "La Police Nexorienne protège les personnes et les biens.",
+  Q3: "Les agents de la Police Nexorienne doivent respecter la loi.",
+  Q4: "La Police Nexorienne peut intervenir de jour comme de nuit.",
+  Q5: "Le respect des citoyens est une valeur fondamentale de la Police Nexorienne.",
+  Q6: "Les agents doivent agir avec professionnalisme en toute circonstance.",
+  Q7: "La Police Nexorienne participe uniquement à la répression des infractions.",
+  Q8: "Les contrôles effectués peuvent se faire sans respecter de règles.",
+  Q9: "La Police Nexorienne travaille en coopération avec d’autres services.",
+  Q10: "Les agents peuvent intervenir sans équipement réglementaire s’ils le souhaitent.",
+  Q11: "La Police Nexorienne intervient uniquement sur réquisition.",
+  Q12: "La neutralité est un principe fondamental pour les agents.",
+  Q13: "Les agents doivent porter assistance aux personnes en danger.",
+  Q14: "La Police Nexorienne ne peut jamais sécuriser d’événements publics.",
+  Q15: "Les interventions doivent être proportionnées à la situation.",
+  Q16: "Les agents sont tenus au respect de la hiérarchie.",
+  Q17: "La Police Nexorienne agit dans l’intérêt général.",
+  Q18: "Les agents doivent toujours agir dans la précipitation.",
+  Q19: "La Police Nexorienne peut procéder à des contrôles de sécurité.",
+  Q20: "L’image de la Police Nexorienne dépend du comportement des agents."
+};
+
 for (let i = 1; i <= 20; i++) {
   container.innerHTML += `
   <div class="question">
     <strong>Question ${i}</strong><br>
+    <em>${textesQuestions['Q'+i]}</em><br><br>
     <label><input type="radio" name="Q${i}" value="Vrai" required> Vrai</label><br>
     <label><input type="radio" name="Q${i}" value="Faux"> Faux</label>
   </div>`;
